@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div>
+        <h1>Análise do preço médio</h1>
+        <form method="post" action="/analise/pmedio">
+            <select name="codigo" id="codigo" class="form-select" aria-label="Default select example">
+                {% for codigo in codigos %}
+                <option value="{{ codigo }}" >{{ codigo }}</option>                            
+                {% endfor %}
+            </select>
+            <button type="submit">Pesquisar</button>
+        </form>
+
+        <h3>Resultado: {{ ativo }} {{ preco_medio }}</h3>   
+    </div>
+{% endblock  %}

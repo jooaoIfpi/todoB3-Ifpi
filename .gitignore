@@ -1,0 +1,7 @@
+.venv
+.vscode
+poetry.lock
+src/sql_app.db
+src/todob3_dev/__pycache__
+tests/__pycache__
+tests/.pytest_cache
