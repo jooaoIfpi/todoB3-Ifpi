@@ -44,19 +44,27 @@ class Task(Base):
     self.codigo = codigo
     self.quantidade = quantidade
     self.valor_unitario = valor_unitario
-    self.valor_total = self.quantidade * self.valor_unitario
+    self.valor_total = self.valor_total()
     self.tipo_op = tipo_op.lower()
     self.tx_corretagem = self.custo_corretagem(tx_corretagem)
     self.tx_b3 = self.custo_b3(taxa_b3)
     self.valor_operacao = self.operacao() # calcular + ou - as taxas
+    
+  #calculando o valor_total
+  @property
+  def valor_total(self):
+    calculo = self.quantidade * self.valor_unitario
+    return f'{calculo:.2f}'
   
   
   # Calculando taxas
   def operacao(self):
     if self.tipo_op == 'compra':
-      return self.valor_total + self.tx_corretagem + self.tx_b3 
+      resultado = self.valor_total + self.tx_corretagem + self.tx_b3 
+      return f'{resultado:.2f}'
     if self.tipo_op == 'venda':
-      return self.valor_total - self.tx_corretagem - self.tx_b3
+      resultado = self.valor_total - self.tx_corretagem - self.tx_b3
+      return f'{resultado:.2f}'
   
   
   def custo_b3(self, tx):
