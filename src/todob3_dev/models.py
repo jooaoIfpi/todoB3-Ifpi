@@ -54,9 +54,11 @@ class Task(Base):
   # Calculando taxas
   def operacao(self):
     if self.tipo_op == 'compra':
-      return self.valor_total + self.tx_corretagem + self.tx_b3 
+      resultado = self.valor_total + self.tx_corretagem + self.tx_b3 
+      return f'{resultado:.2f}'
     if self.tipo_op == 'venda':
-      return self.valor_total - self.tx_corretagem - self.tx_b3
+          resultado = self.valor_total - self.tx_corretagem - self.tx_b3
+      return f'{resultado:.2f}'
   
   
   def custo_b3(self, tx):
