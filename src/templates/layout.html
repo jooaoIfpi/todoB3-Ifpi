@@ -5,9 +5,20 @@
     <meta charset="UTF-8" name="viewport">
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 
     <style>
       /* The popup form - hidden by default */
+      .pag {
+        background-color: red;
+        margin-left: -10%;
+        margin-right: -10%;
+         border: 3px solid rgb(12, 236, 252);
+        background-color: rgb(15, 59, 116);
+        text-align: center;
+        padding: 10px;
+      }
+      
       .form-popup {
         display: none;
         position: fixed;
@@ -67,17 +78,21 @@
       .form-container .btn:hover, .btn-edit:hover, .open-button:hover {
         opacity: 1;
       }
+
+
     </style>
     <title>Simple toDo Application</title>
 </head>
 <body>
 
   <!-- Inicio: Fazer Navbar -->
-
-  <a href="/">Home</a>
-  <a href="/analise">Análise</a>
-
-  <!-- Fim: Navbar -->
+  
+<div class="pag">
+  <a class="btn btn-primary "href="/">Home</a>
+  <a class="btn btn-primary" href="/analise">Análise</a>
+</div>
+  
+<!-- Fim: Navbar -->
 
   <div style="display: flex; flex-direction: column; min-height: 80vh">
     <div class="container">
