@@ -1,39 +1,47 @@
 {% extends 'layout.html' %}
 {% block content %}
 
-<div  class="wrapper-editor">
-    <!-- Para inserir -->
-    <form action="/add" method="post" >
-        
-        <label class="form-label" for="form1">Data</label><br>
-        <input type="date" name="cr_data" id="form1"><br>
-    
-        <label for="codigo">Código</label><br>
-        <select aria-label="Default select example" name="codigo" id="codigo">
-            {% for codigo in codigos %}
-            <option>{{ codigo }}</option>    
-            {% endfor %}
-        </select> <br>
-    
-        Quantidade<br>
-        <input type="number" name="quantidade"><br>
-        Valor unitário<br>
-        <input type="number" name="valor_unitario" step="0.01"><br>
-    
-        <label for="tipo_op">Tipo de operação: </label><br>
-        <select name="tipo_op" id="tipo_op">
-            <option value="compra">Compra</option>
-            <option value="venda">Venda</option>
-        </select> <br>
-    
-        Taxa de corretagem<br> <!--Deve mostrar o valor padrão 2.5-->
-        <input type="number" name="tx_corretagem" step="0.1" value="2.5"><br>
-    
-        Taxa B3<br> <!--Deve mostrar o valor padrão 0.03-->
-        <input type="number" name="tx_b3" step="0.01" value="0.03"><br>
-        
-        <button type="submit" class="btn btn-primary">Registro</button>
-    </form>
+<div  class="wrapper-editor container">
+    <div class="row">
+        <div class="col">
+            <!-- Para inserir -->
+            <form action="/add" method="post" >
+                
+                <label class="form-label" for="form1">Data</label><br>
+                <input type="date" name="cr_data" id="form1"><br>
+            
+                <label for="codigo">Código</label><br>
+                <select aria-label="Default select example" name="codigo" id="codigo">
+                    {% for codigo in codigos %}
+                    <option>{{ codigo }}</option>    
+                    {% endfor %}
+                </select> <br>
+            
+                Quantidade<br>
+                <input type="number" name="quantidade"><br>
+                Valor unitário<br>
+                <input type="number" name="valor_unitario" step="0.01"><br>
+            
+                <label for="tipo_op">Tipo de operação: </label><br>
+                <select name="tipo_op" id="tipo_op">
+                    <option value="compra">Compra</option>
+                    <option value="venda">Venda</option>
+                </select> <br>
+            
+                Taxa de corretagem<br> <!--Deve mostrar o valor padrão 2.5-->
+                <input type="number" name="tx_corretagem" step="0.1" value="2.5"><br>
+            
+                Taxa B3<br> <!--Deve mostrar o valor padrão 0.03-->
+                <input type="number" name="tx_b3" step="0.01" value="0.03"><br>
+                
+                <button type="submit" class="btn btn-primary">Registro</button>
+            </form>
+        </div>
+
+        <div class="col">
+            <img src="" class="img-fluid" alt="...">
+        </div>
+    </div>
 
     <!-- Filtrar -->
     <br>
