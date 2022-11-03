@@ -197,24 +197,28 @@ async def preco_medio(request: Request):
   ativo = data['codigo']
   custos = 0
   qtd = 0
+  pmedio = 0
   status = False
   try:
     ativos_comprados = db.session.query(Task).filter(Task.tipo_op == "compra")
     codigos = [v.codigo for v in ativos_comprados]
-    # Calcular preco médio do ativo 
-    valores_ativo = db.session.query(Task).filter(Task.codigo == ativo)
+    valores_ativo =db.session.query(Task).filter(Task.codigo == ativo)
     try:
       for t in valores_ativo:
         if t.tipo_op == "compra":
           custos += t.valor_operacao
-          qtd += t.quantidade
+          qtd+= t.quantidade
           status = True
+        elif t.tipo_op == "venda" and status == True:
+          pmedio = custos / qtd
+          qtd -= t.quantidade
+          custos = pmedio * qtd
       if custos and qtd != 0:
-        pmedio = custos / qtd
+        pmedio =custos / qtd
       else:
         pmedio = "Não teve compra"
     except:
-      pmedio = "Não teve compra"
+      pmedio = "Não teve comprar"
   except:
     db.session.rollback()
     

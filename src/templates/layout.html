@@ -5,9 +5,25 @@
     <meta charset="UTF-8" name="viewport">
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+  
 
     <style>
       /* The popup form - hidden by default */
+      .pag{
+        background-color: red;
+        margin-left: -10%;
+        margin-right: -10%;
+         border: 3px solid rgb(12, 236, 252);
+        background-color: rgb(15, 59, 116);
+        text-align: center;
+        padding: 10px;
+        color: azure;
+       
+      }
+
+      
       .form-popup {
         display: none;
         position: fixed;
@@ -16,6 +32,7 @@
         border: 3px solid #f1f1f1;
         z-index: 9;
         background-color:azure; 
+        
       }
 
       .myForm {
@@ -28,6 +45,7 @@
         padding: 10px;
         margin-right: 100px;
         background-color: white;
+        background-image: url(../templates/b3.png);
       }
 
       /* Full-width input fields */
@@ -67,17 +85,21 @@
       .form-container .btn:hover, .btn-edit:hover, .open-button:hover {
         opacity: 1;
       }
+
+
     </style>
     <title>Simple toDo Application</title>
 </head>
 <body>
 
   <!-- Inicio: Fazer Navbar -->
-
-  <a href="/">Home</a>
-  <a href="/analise">Análise</a>
-
-  <!-- Fim: Navbar -->
+  
+<div class="pag">
+  <a class="btn btn-primary "href="/">Home</a>
+  <a class="btn btn-primary" href="/analise">Análise</a>
+</div>
+  
+<!-- Fim: Navbar -->
 
   <div style="display: flex; flex-direction: column; min-height: 80vh">
     <div class="container">
@@ -89,7 +111,12 @@
 
   <!-- Inicio: Fazer Footer -->
 
-
+   
+    <footer>
+    <div class="pag">
+      <p><h1> Trabalho de Métodos Ágeis</p></h1>
+    </div>
+    </footer>
   <!-- Fim: Footer -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
